@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,11 +11,13 @@
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Your custom CSS -->
-    <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
+    
+    <link rel="stylesheet" href="{% static 'styles/base.css' %}">
 
 </head>
 
 <body>
+    <p>{{ time }}</p>
     <nav> {% block nav %}{% endblock %} </nav>
     <main> {% block main %}{% endblock %} </main>
     <footer> {% block footer %}{% endblock %} </footer>
