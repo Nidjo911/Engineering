@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}<title>Document</title>{% endblock %}
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Your custom CSS -->
+    <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
+
+</head>
+
+<body>
+    <nav> {% block nav %}{% endblock %} </nav>
+    <main> {% block main %}{% endblock %} </main>
+    <footer> {% block footer %}{% endblock %} </footer>
+
+    <!-- JavaScript at the end of the document so the pages load faster -->
+    <!-- jQuery (required by Materialize) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Materialize JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    <!-- Initialize Materialize components -->
+    <script>
+        // Initialize all Materialize components
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems);
+            
+            // Initialize other components as needed
+            // M.AutoInit(); // Uncomment this if you want to auto-initialize all Materialize components
+        });
+    </script>
+    
+    {% block scripts %}{% endblock %}
+</body>
+
+</html>
