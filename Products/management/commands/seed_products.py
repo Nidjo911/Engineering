@@ -1,4 +1,5 @@
 from django.core.management.base import BaseCommand
+from django.utils.text import slugify
 from Products.models import Product
 
 class Command(BaseCommand):
@@ -12,43 +13,49 @@ class Command(BaseCommand):
                 'name': 'Wireless Earbuds Pro',
                 'price': 129.99,
                 'description': 'High-quality wireless earbuds with noise cancellation and 24-hour battery life.',
-                'active_product': True
+                'slug': 'wireless-earbuds-pro'
             },
             {
                 'name': 'Smartphone X',
                 'price': 899.99,
-                'description': 'Latest smartphone with 6.7" AMOLED display and triple camera system.',
-                'active_product': True
+                'description': 'Latest smartphone with advanced camera and performance.',
+                'slug': 'smartphone-x'
             },
             {
                 'name': 'Ergonomic Keyboard',
-                'price': 79.99,
-                'description': 'Mechanical keyboard with ergonomic design for comfortable typing.',
-                'active_product': True
+                'price': 89.99,
+                'description': 'Comfortable keyboard designed for long typing sessions.',
+                'slug': 'ergonomic-keyboard'
             },
             {
                 'name': '4K UHD Monitor',
                 'price': 349.99,
-                'description': '27-inch 4K UHD monitor with HDR and 99% sRGB color gamut.',
-                'active_product': True
+                'description': '27-inch 4K monitor with HDR support.',
+                'slug': '4k-uhd-monitor'
             },
             {
                 'name': 'Wireless Charging Pad',
                 'price': 29.99,
-                'description': 'Fast wireless charging pad compatible with all Qi-enabled devices.',
-                'active_product': True
+                'description': 'Fast wireless charger for all Qi-enabled devices.',
+                'slug': 'wireless-charging-pad'
             }
         ]
 
         # Clear existing products
         Product.objects.all().delete()
-        self.stdout.write('Deleted existing products...')
 
-        # Create new products
+        # Create new products with slugs
         for product_data in products:
-            Product.objects.create(**product_data)
-            self.stdout.write(f"Created product: {product_data['name']}")
+            # Create slug from name if not provided
+            if 'slug' not in product_data:
+                product_data['slug'] = slugify(product_data['name'])
+            
+            product = Product.objects.create(
+                name=product_data['name'],
+                price=product_data['price'],
+                description=product_data['description'],
+                slug=product_data['slug']
+            )
+            self.stdout.write(self.style.SUCCESS(f'Created product: {product.name} with slug: {product.slug}'))
 
-        self.stdout.write(
-            self.style.SUCCESS('Successfully seeded product data!')
-        )
+        self.stdout.write(self.style.SUCCESS('Successfully seeded product data!'))
