@@ -11,11 +11,11 @@ def products_home(request):
     return render(request, 'products/products_home.html', {'products': products})
 
 
-def product_detail(request, product_slug):
+def product_detail(request, slug):
     try:
         print("Product detail view was called!")
-        #return HttpResponse(product_slug)
-        selected_product = Product.objects.get(slug=product_slug)
+        #return HttpResponse(slug)
+        selected_product = Product.objects.get(slug=slug)
         #return HttpResponse(selected_product.name)
         return render(request, 'products/products_details.html', {'product_name': selected_product.name, 'product_price': selected_product.price, 'product_description': selected_product.description})
     except Exception as exc:

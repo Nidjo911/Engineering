@@ -18,7 +18,26 @@
 
 <body>
     <p>{{ time }}</p>
-    <nav> {% block nav %}{% endblock %} </nav>
+    <nav class="blue darken-2">
+        <div class="nav-wrapper container">
+            <a href="#" class="brand-logo">MyShop</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="{% url 'home' %}"><i class="material-icons left">home</i>Home</a></li>
+                <li><a href="{% url 'products-home' %}"><i class="material-icons left">shopping_bag</i>Products</a></li>
+                <li><a href="#"><i class="material-icons left">info</i>About</a></li>
+                <li><a href="#"><i class="material-icons left">email</i>Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="{% url 'home' %}"><i class="material-icons">home</i>Home</a></li>
+        <li><a href="{% url 'products-home' %}"><i class="material-icons">shopping_bag</i>Products</a></li>
+        <li><a href="#"><i class="material-icons">info</i>About</a></li>
+        <li><a href="#"><i class="material-icons">email</i>Contact</a></li>
+    </ul>
     <main> {% block main %}{% endblock %} </main>
     <footer> {% block footer %}{% endblock %} </footer>
 
