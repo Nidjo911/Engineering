@@ -26,6 +26,5 @@ urlpatterns = [
     path('home/', include('Home.urls')),
     path('', RedirectView.as_view(url='products/', permanent=False)),
     path('products/', include('Products.urls')),
+    path('profile/', include('Profile.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'App',
     'Home',
     'Products',
+    'Profile'
 ]
 
 MIDDLEWARE = [
@@ -82,8 +83,8 @@ WSGI_APPLICATION = 'App.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-# For local PostgreSQL first (to test)
-DATABASES = {
+# PostgreSQL configuration
+POSTGRES_DB = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'your_db_name',
@@ -93,6 +94,20 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+# SQLite configuration
+SQLITE_DB = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+# Default to SQLite
+DATABASES = SQLITE_DB
+
+# Uncomment the line below to switch to PostgreSQL
+# DATABASES = POSTGRES_DB
 
 
 """ DATABASES = {
