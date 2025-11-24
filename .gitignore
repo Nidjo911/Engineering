@@ -56,3 +56,7 @@ ENV/
 # Local development
 .DS_Store
 Thumbs.db
+
+
+# Data files
+Products/management/commands/seed_products.py
