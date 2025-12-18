@@ -5,4 +5,3 @@ from django.shortcuts import render
 
 def home(request):
     return render(request, 'Home.html', {'time': datetime.now().strftime('%H:%M:%S')})
-
