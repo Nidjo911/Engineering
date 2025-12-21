@@ -6,13 +6,13 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f5f5f5;
+    background-color: purple;
     min-height: 100vh;
 }
 
 /* Navigation styles */
 nav {
-    background-color: #3f51b5 !important;
+    background-color: plum !important;
     padding: 0 20px;
 }
 
@@ -51,11 +51,11 @@ nav ul a.active {
 
 /* Button styles */
 .btn {
-    background-color: #3f51b5;
+    background-color: plum;
 }
 
 .btn:hover {
-    background-color: #303f9f;
+    background-color: purple;
 }
 
 /* Utility classes */

@@ -12,13 +12,14 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Your custom CSS -->
 
-    <link rel="stylesheet" href="{% static 'styles/base.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/base.css' %}?v={% now 'U' %}">
 
 </head>
 
 <body>
     <p>{{ time }}</p>
     <nav class="blue darken-2">
+        {% block nav %}{% endblock %} 
         <div class="nav-wrapper container">
             <a href="#" class="brand-logo">MyShop</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>

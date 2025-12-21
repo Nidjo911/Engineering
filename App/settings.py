@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'App',
-    'Home'
+    'Home',
+    'Clients',
 ]
 
 MIDDLEWARE = [
@@ -154,7 +155,7 @@ STATIC_URL = 'static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    BASE_DIR / 'App' / 'static',
 ]
 
 # The directory where collectstatic will collect static files for deployment
