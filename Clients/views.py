@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Client
+from data import DUMMY_CLIENTS
 
 # Create your views here.
 
@@ -15,9 +16,9 @@ def create_client(request):
     else:
         form = ClientForm()
 
-    return render(request, 'ClientForm.html', {'form': form})
+    return render(request, 'clients/ClientForm.html', {'form': form})
 
 
 def list_clients(request):
-    clients = Client.objects.all()
-    return render(request, 'clients_list.html', {'clients': clients})
+    clients = DUMMY_CLIENTS
+    return render(request, 'clients/clients_list.html', {'clients': clients})
