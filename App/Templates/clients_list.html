@@ -1,0 +1,41 @@
+{% extends 'Base.html' %}
+
+{% block content %}
+<div class="container">
+    <h4 class="center-align">All Clients</h4>
+    
+    {% if clients %}
+        <div class="row">
+            {% for client in clients %}
+                <div class="col s12 m6 l4">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title">{{ client.name }}</span>
+                            <p><i class="material-icons tiny">phone</i> {{ client.phone_number }}</p>
+                            <p>
+                                Status: 
+                                {% if client.active %}
+                                    <span class="green-text">Active</span>
+                                {% else %}
+                                    <span class="red-text">Inactive</span>
+                                {% endif %}
+                            </p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#" class="blue-text">Edit</a>
+                            <a href="#" class="red-text">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="center-align">
+            <p>No clients found.</p>
+            <a href="{% url 'clients-create' %}" class="btn waves-effect waves-light blue">
+                <i class="material-icons left">add</i>Add First Client
+            </a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

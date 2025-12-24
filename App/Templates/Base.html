@@ -17,7 +17,6 @@
 </head>
 
 <body>
-    <p>{{ time }}</p>
     <nav class="blue darken-2">
         {% block nav %}{% endblock %} 
         <div class="nav-wrapper container">
@@ -25,9 +24,8 @@
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="{% url 'home' %}"><i class="material-icons left">home</i>Home</a></li>
-                <li><a href="{% url 'products-home' %}"><i class="material-icons left">shopping_bag</i>Products</a></li>
-                <li><a href="#"><i class="material-icons left">info</i>About</a></li>
-                <li><a href="#"><i class="material-icons left">email</i>Contact</a></li>
+                <li><a href="{% url 'clients-list' %}"><i class="material-icons left">list</i>Clients</a></li>
+                <li><a href="{% url 'clients-create' %}"><i class="material-icons left">shopping_bag</i>New-Client</a></li>
             </ul>
         </div>
     </nav>
@@ -40,25 +38,10 @@
         <li><a href="#"><i class="material-icons">email</i>Contact</a></li>
     </ul>
     <main> {% block main %}{% endblock %} </main>
-    <footer> {% block footer %}{% endblock %} </footer>
+    <footer>{% block footer %}{% endblock %} </footer>
 
     <!-- JavaScript at the end of the document so the pages load faster -->
-    <!-- jQuery (required by Materialize) -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Materialize JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    <!-- Initialize Materialize components -->
-    <script>
-        // Initialize all Materialize components
-        document.addEventListener('DOMContentLoaded', function () {
-            var elems = document.querySelectorAll('.sidenav');
-            var instances = M.Sidenav.init(elems);
-
-            // Initialize other components as needed
-            // M.AutoInit(); // Uncomment this if you want to auto-initialize all Materialize components
-        });
-    </script>
     <!-- This will print the actual URL -->
     <p>Static URL test: {% static 'styles/base.css' %}</p>
 

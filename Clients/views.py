@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Client
 
 # Create your views here.
 
@@ -15,3 +16,8 @@ def create_client(request):
         form = ClientForm()
 
     return render(request, 'ClientForm.html', {'form': form})
+
+
+def list_clients(request):
+    clients = Client.objects.all()
+    return render(request, 'clients_list.html', {'clients': clients})
