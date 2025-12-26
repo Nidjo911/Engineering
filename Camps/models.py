@@ -1,11 +1,9 @@
 from django.db import models
 
-# Create your models here.
-
-
-class Client(models.Model):
+class Camps(models.Model):
     name = models.CharField(max_length=255)
-    phone_number = models.CharField(max_length=30)
+    description = models.CharField(max_length=255)
+    people_max_capacity = models.IntegerField()
     active = models.BooleanField(default=True)
 
     def __str__(self) -> str:
